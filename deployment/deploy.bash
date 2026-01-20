@@ -7,10 +7,10 @@ API_DNS=$2
 CF_DNS_API_TOKEN=$3
 CERTBOT_EMAIL=$4
 
-test -z $WWW_DNS && WWW_DNS="moneroocean.stream"
-test -z $API_DNS && API_DNS="api.moneroocean.stream"
+test -z $WWW_DNS && WWW_DNS="monero.alphablock.io"
+test -z $API_DNS && API_DNS="api.monero.alphablock.io"
 test -z $CF_DNS_API_TOKEN && CF_DNS_API_TOKEN="n/a"
-test -z $CERTBOT_EMAIL && CERTBOT_EMAIL="support@moneroocean.stream"
+test -z $CERTBOT_EMAIL && CERTBOT_EMAIL="support@alphablock.io"
 
 if [[ $(whoami) != "root" ]]; then
   echo "Please run this script as root"
@@ -99,7 +99,7 @@ server {
 	root /var/www/mo/;
         index index.html;
 	gzip on;
-        add_header Content-Security-Policy "default-src 'none'; connect-src https://api.moneroocean.stream; font-src 'self'; img-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; frame-ancestors 'none'; base-uri 'none'; form-action 'none'" always;
+        add_header Content-Security-Policy "default-src 'none'; connect-src https://api.monero.alphablock.io; font-src 'self'; img-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; frame-ancestors 'none'; base-uri 'none'; form-action 'none'" always;
         add_header X-Frame-Options "SAMEORIGIN" always;
 	ssl_certificate /etc/letsencrypt/live/$WWW_DNS/fullchain.pem;
 	ssl_certificate_key /etc/letsencrypt/live/$WWW_DNS/privkey.pem;
@@ -185,7 +185,7 @@ nvm install $NODEJS_VERSION
 nvm alias default $NODEJS_VERSION
 test -f /usr/bin/node || sudo ln -s \$(which node) /usr/bin/node
 set -x
-git clone https://github.com/MoneroOcean/nodejs-pool.git
+git clone https://github.com/PuppyGamingDev/nodejs-pool.git
 cd /home/user/nodejs-pool
 JOBS=$(nproc) npm install
 # install lmdb tools
@@ -225,7 +225,7 @@ pm2 start init.js --name=pool_stats --kill-timeout 10000 --log-date-format="YYYY
 pm2 save
 sudo env PATH=$PATH:/home/user/.nvm/versions/node/$NODEJS_VERSION/bin /home/user/.nvm/versions/node/$NODEJS_VERSION/lib/node_modules/pm2/bin/pm2 startup systemd -u user --hp /home/user
 cd /home/user
-git clone https://github.com/MoneroOcean/moneroocean-gui.git
+git clone https://github.com/PuppyGamingDev/moneroocean-gui.git
 cd moneroocean-gui
 sudo DEBIAN_FRONTEND=noninteractive apt-get install -y chromium-browser
 sudo snap install chromium
