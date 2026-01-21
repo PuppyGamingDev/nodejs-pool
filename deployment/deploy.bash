@@ -7,8 +7,8 @@ API_DNS=$2
 CF_DNS_API_TOKEN=$3
 CERTBOT_EMAIL=$4
 
-test -z $WWW_DNS && WWW_DNS="monero.alphablock.io"
-test -z $API_DNS && API_DNS="api.monero.alphablock.io"
+test -z $WWW_DNS && WWW_DNS="alphablockmonero.xyz"
+test -z $API_DNS && API_DNS="api.alphablockmonero.xyz"
 test -z $CF_DNS_API_TOKEN && CF_DNS_API_TOKEN="n/a"
 test -z $CERTBOT_EMAIL && CERTBOT_EMAIL="support@alphablock.io"
 
@@ -99,7 +99,7 @@ server {
 	root /var/www/mo/;
         index index.html;
 	gzip on;
-        add_header Content-Security-Policy "default-src 'none'; connect-src https://api.monero.alphablock.io; font-src 'self'; img-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; frame-ancestors 'none'; base-uri 'none'; form-action 'none'" always;
+        add_header Content-Security-Policy "default-src 'none'; connect-src https://api.alphablockmonero.xyz; font-src 'self'; img-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; frame-ancestors 'none'; base-uri 'none'; form-action 'none'" always;
         add_header X-Frame-Options "SAMEORIGIN" always;
 	ssl_certificate /etc/letsencrypt/live/$WWW_DNS/fullchain.pem;
 	ssl_certificate_key /etc/letsencrypt/live/$WWW_DNS/privkey.pem;
