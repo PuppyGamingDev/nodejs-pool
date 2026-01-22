@@ -49,7 +49,7 @@ DEBIAN_FRONTEND=noninteractive apt-get install -y vim git make g++ cmake libssl-
 cd /usr/local/src
 git clone https://github.com/monero-project/monero.git
 cd monero
-git checkout v0.18.4.3
+git checkout v0.18.4.5
 git submodule update --init
 USE_SINGLE_BUILDDIR=1 make -j$(nproc) release || USE_SINGLE_BUILDDIR=1 make -j1 release
 
@@ -88,7 +88,7 @@ nvm install $NODEJS_VERSION
 nvm alias default $NODEJS_VERSION
 test -f /usr/bin/node || sudo ln -s \$(which node) /usr/bin/node
 set -x
-git clone https://github.com/MoneroOcean/nodejs-pool.git
+git clone https://github.com/PuppyGamingDev/nodejs-pool.git
 cd /home/user/nodejs-pool
 JOBS=$(nproc) npm install
 npm install -g pm2
